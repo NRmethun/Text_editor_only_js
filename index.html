@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rich Text editor </title>
+    <script src="https://kit.fontawesome.com/194b327f92.js" crossorigin="anonymous"></script>
+
+
+
+
+    <link rel="stylesheet" href="rich.css" type="text/css">
+</head>
+
+<body onload="enableEditMode();">
+    <button></button>
+    <div>
+        <button onclick="execCmd('bold');"> <abbr title="Bold"> <i class="fas fa-bold"></i> </abbr> </button>
+        <button onclick="execCmd('italic');"> <abbr title="Italic"> <i class="fas fa-italic"></i> </abbr></button>
+        <button onclick="execCmd('underline');"> <abbr title="underline"> <i class="fas fa-underline"></i>
+            </abbr></button>
+        <button onclick="execCmd('strikeThrough');"> <abbr title="strikeThrough"> <i class="fas fa-strikethrough"> </i>
+            </abbr> </i> </button>
+        <button onclick="execCmd('justifyLeft');"> <abbr title="Left-Align"> <i class="fas fa-align-left"></i> </abbr>
+        </button>
+        <button onclick="execCmd('justifyCenter');"> <abbr title="Center-Align"> <i class="fas fa-align-center"></i>
+            </abbr> </button>
+        <button onclick="execCmd('justifyRight');"> <abbr title="Right-Align"> <i class="fas fa-align-right"></i>
+            </abbr></button>
+        <button onclick="execCmd('justifyFull');"> <abbr title="Justify-Align"> <i class="fas fa-align-justify"></i>
+            </abbr> </button>
+
+        <button onclick="execCmd('cut');"> <abbr title="Cut"> <i class="fas fa-cut"></i> </abbr> </button>
+        <button onclick="execCmd('copy');"> <abbr title="Copy"> <i class="fas fa-copy"></i> </abbr> </button>
+        <button onclick="execCmd('indent');"> <abbr title="indent"> <i class="fas fa-indent"></i> </abbr> </button>
+        <button onclick="execCmd('outdent');"> <abbr title="outdent"> <i class="fas fa-outdent"></i> </abbr> </button>
+        <button onclick="execCmd('subscript');"> <abbr title="subscript"> <i class="fas fa-subscript"></i>
+            </abbr></button>
+        <button onclick="execCmd('superscript');"> <abbr title="subscript"> <i class="fas fa-superscript"></i> </abbr>
+        </button>
+
+        <button onclick="execCmd('undo');"> <abbr title="undo"> <i class="fas fa-undo"></i> </abbr> </button>
+        <button onclick="execCmd('redo');"> <abbr title="redo"> <i class="fas fa-redo"></i> </abbr> </button>
+        <button onclick="execCmd('insertUnorderedList');"> <abbr title="UnorderLis"> <i class="fas fa-list-ul"></i>
+            </abbr> </button>
+        <button onclick="execCmd('insertOrderedList');"> <abbr title="orderList"> <i class="fas fa-list-ol"></i>
+            </abbr></button>
+        <button onclick="execCmd('insertparagraph');"> <abbr title="newLine">  <i class="fas fa-paragraph"></i> </abbr>
+        </button>
+
+
+
+
+
+        <select onchange="execCommandWithArg('formatBlock',this.value)">
+            <option value="H1"> H1 </option>
+            <option value="H2"> H2 </option>
+            <option value="H3"> H3 </option>
+            <option value="H4"> H4 </option>
+            <option value="H5"> H5 </option>
+            <option value="H6"> H6 </option>
+        </select>
+
+
+
+        <button onclick="execCmd('insertHorizontalRule');"> <abbr title="horizontalLine"> HR </abbr></button>
+        <button onclick="execCommandWithArg('createLink',prompt('Enter a URL','http://'));"> <abbr title="link"> <i
+                    class="fas fa-link"></i> </abbr> </button>
+        <button onclick="execCmd('unlink');"> <abbr title="unlink"> <i class="fas fa-unlink"></i> </abbr> </button>
+        <button onclick="togglToSource();"> <abbr title="toggl To Source Code"> <i class="fas fa-code"></i> </button>
+        <button onclick="togglToEdit();"> Edit </button>
+
+        <br>
+
+        <select>onchange="execCommandWithArg('fontName',this.value)"
+            <option value="Arial">Arial </option>
+            <option value="Comic Sans Ms">Comic Sans Ms </option>
+            <option value="Courier">Courier</option>
+            <option value="Georgia">Georgia </option>
+            <option value="Tahoma">Tahoma </option>
+            <option value="Times New Roman">Times New Roman </option>
+
+        </select>
+
+        <select onchange="execCommandWithArg('fontSize',this.value)">
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+            <option value="6"> 6 </option>
+            <option value="7"> 7 </option>
+        </select>
+        fore color:<input type="color" onchange="execCommandWithArg('foreColor',this.value)">
+        background:<input type="color" onchange="execCommandWithArg('hiliteColor',this.value)">
+
+        <button onclick="execCommandWithArg('insertImage',prompt('Enter the image URL',''));"> <abbr title="Upload Image">
+                <i class="fal fa-images"> </i> </abbr> </button>
+        <button onclick="execCmd('selectAll');"> SelectAll </button>
+
+    </div>
+    <iframe name="richTextField" id="richFrame1">
+
+    </iframe>
+
+    <script src="rich.js" type="text/javascript"></script>
+</body>
+
+</html>
